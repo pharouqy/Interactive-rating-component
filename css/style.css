@@ -133,11 +133,24 @@ button:hover {
   background-color: hsl(25, 97%, 53%);
 }
 
-.span > span:active {
-  color: hsl(0, 0%, 100%);
-  background-color:  hsl(217, 12%, 63%)
+.active {
+  color: hsl(0, 0%, 100%) !important;
+  background-color: hsl(217, 12%, 63%) !important;
 }
 
-#thankfull {
+.show {
+  display: flex;
+}
+
+.hide {
   display: none;
+}
+
+@media all and (max-width: 375px) {
+  article {
+    width: 85%;
+  }
+  button {
+    padding: 15px 125px;
+  }
 }
