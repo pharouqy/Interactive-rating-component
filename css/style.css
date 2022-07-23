@@ -146,6 +146,19 @@ button:hover {
   display: none;
 }
 
+.animation {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media all and (max-width: 375px) {
   article {
     width: 85%;

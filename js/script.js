@@ -31,6 +31,7 @@ function submit(value) {
       const thankfull = document.getElementById("thankfull");
       thankfull.classList.add("show");
       thankfull.classList.remove("hide");
+      thankfull.classList.add("animation");
       /**/
       const result = document.getElementById("result");
       result.innerHTML = value;
