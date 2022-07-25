@@ -147,23 +147,38 @@ button:hover {
 }
 
 .animation {
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
+    transform: scale(1);
   }
 }
 
-@media all and (max-width: 375px) {
+@media all and (max-width: 375px) and (min-width: 321px) {
   article {
     width: 85%;
   }
   button {
     padding: 15px 125px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  article {
+    width: 85%;
+    height: auto;
+  }
+  button {
+    padding: 15px 105px;
+  }
+  .span span:not(:last-child) {
+    margin-right: -1px;
   }
 }
