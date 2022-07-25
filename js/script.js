@@ -9,13 +9,19 @@ function active() {
       // add event listener to each span
       e.target.classList.toggle("active"); // toggle class active
       toggle(e); // call toggle function
-      submit(e.target.innerHTML); // call submit function
+      if (e.target.classList.contains("active")) {
+        // if target is active
+        const value = e.target.innerHTML; // get value
+        submit(value); // call submit function
+      }
     });
   }
 }
 
 function toggle(e) {
   const active = document.querySelectorAll(".active"); // get all active
+  const errorMsg = document.getElementById("errorMsg"); // get errorMsg
+  errorMsg.innerHTML = ""; // set errorMsg
   for (let i = 0; i < active.length; i++) {
     // loop through all active
     if (e.target.classList.contains("active") && active[i] != e.target) {
@@ -31,8 +37,9 @@ function submit(value) {
   const submit = document.getElementsByTagName("button")[0]; // get submit button
   submit.addEventListener("click", function (e) {
     // add event listener to submit button
+    const errorMsg = document.getElementById("errorMsg"); // get errorMsg
     e.preventDefault(); // prevent default
-    if (active.length === 1) {
+    if (active.length > 0) {
       // if active is not empty
       const submit = document.getElementById("submit"); // get submit button
       submit.classList.add("hide"); // add class hide
@@ -44,8 +51,7 @@ function submit(value) {
       const result = document.getElementById("result"); // get result
       result.innerHTML = value; // set result
     } else {
-      // if active is empty
-      alert("Please select at least one option"); // alert
+      errorMsg.innerHTML = "Please select at least one value !!!"; // set errorMsg
     }
   });
 }
