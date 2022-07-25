@@ -1,42 +1,50 @@
 active();
-submit();
 
 function active() {
-  const span = document.getElementsByTagName("span");
+  const span = document.getElementsByTagName("span"); // get all span
   for (let i = 0; i < span.length; i++) {
+    // loop through all span
     span[i].addEventListener("click", function (e) {
-      this.classList.toggle("active");
-      const spanActive = document.getElementsByClassName("active");
-      console.log(spanActive.length);
-      if (spanActive.length === 1) {
-        submit(e.target.innerHTML);
-      } else {
-        alert("Please select at least one option");
-        window.location.reload();
-      }
+      // add event listener to each span
+      e.target.classList.toggle("active"); // toggle class active
+      toggle(e); // call toggle function
+      submit(e.target.innerHTML); // call submit function
     });
   }
 }
 
-function submit(value) {
-  const active = document.getElementsByClassName("active");
+function toggle(e) {
+  const active = document.querySelectorAll(".active"); // get all active
+  for (let i = 0; i < active.length; i++) {
+    // loop through all active
+    if (e.target.classList.contains("active") && active[i] != e.target) {
+      // if target is active and active is not target
+      active[i].classList.remove("active"); // remove class active
+    }
+  }
+}
 
-  const submit = document.getElementsByTagName("button")[0];
+function submit(value) {
+  const active = document.getElementsByClassName("active"); // get all active
+
+  const submit = document.getElementsByTagName("button")[0]; // get submit button
   submit.addEventListener("click", function (e) {
-    e.preventDefault();
-    console.log(e.target.value);
+    // add event listener to submit button
+    e.preventDefault(); // prevent default
     if (active.length > 0) {
-      const submit = document.getElementById("submit");
-      submit.classList.add("hide");
-      const thankfull = document.getElementById("thankfull");
-      thankfull.classList.add("show");
-      thankfull.classList.remove("hide");
-      thankfull.classList.add("animation");
+      // if active is not empty
+      const submit = document.getElementById("submit"); // get submit button
+      submit.classList.add("hide"); // add class hide
+      const thankfull = document.getElementById("thankfull"); // get thankfull
+      thankfull.classList.add("show"); // add class show
+      thankfull.classList.remove("hide"); // remove class hide
+      thankfull.classList.add("animation"); // add class animation
       /**/
-      const result = document.getElementById("result");
-      result.innerHTML = value;
+      const result = document.getElementById("result"); // get result
+      result.innerHTML = value; // set result
     } else {
-      alert("Please select at least one option");
+      // if active is empty
+      alert("Please select at least one option"); // alert
     }
   });
 }
