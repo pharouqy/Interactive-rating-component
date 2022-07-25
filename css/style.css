@@ -161,16 +161,7 @@ button:hover {
   }
 }
 
-@media all and (max-width: 375px) and (min-width: 321px) {
-  article {
-    width: 85%;
-  }
-  button {
-    padding: 15px 125px;
-  }
-}
-
-@media all and (max-width: 320px) {
+@media all and (max-width: 375px) {
   article {
     width: 85%;
     height: auto;
