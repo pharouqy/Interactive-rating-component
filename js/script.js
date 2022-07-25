@@ -1,4 +1,5 @@
 active();
+submit();
 
 function active() {
   const span = document.getElementsByTagName("span"); // get all span
@@ -31,7 +32,7 @@ function submit(value) {
   submit.addEventListener("click", function (e) {
     // add event listener to submit button
     e.preventDefault(); // prevent default
-    if (active.length > 0) {
+    if (active.length === 1) {
       // if active is not empty
       const submit = document.getElementById("submit"); // get submit button
       submit.classList.add("hide"); // add class hide
